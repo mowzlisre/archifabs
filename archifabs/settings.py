@@ -119,9 +119,13 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/cdn/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+if DEBUG:
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+else:
+    STATIC_ROOT = "/home/ubuntu/archifabs/archifabs/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    '/var/www/static/',
 ]
 
 # Default primary key field type
